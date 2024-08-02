@@ -27,5 +27,16 @@ namespace SimulacroPruebaC.models
         public void AddExperience(int years){
             DrivingExperience += years;
         }
+
+        public void ShowDriver(){
+            Console.WriteLine(@$"
+            Nombre:{Name},Apellido{LastName},
+            Tipo de documento : {TypeDocument}, Numero de identificació: {IdentificationNumber},
+            Fecha de nacimiento :{BrithDate} , Correo electronico: {Email},
+            Numero de telefono : {PhoneNumber}, Direccion : {Adreess} ,
+            Licencia : {this.LicenseNumber} Categoria Licencia: {this.LicenseCategory}
+            Años de experiencia : {this.DrivingExperience} ");
+        }
+
     }
 }

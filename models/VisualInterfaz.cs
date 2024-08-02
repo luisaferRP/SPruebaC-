@@ -1,6 +1,6 @@
 namespace SimulacroPruebaC.models
 {
-    public class InterfazVisual
+    public class VisualInterfaz
     {
         public static void Visual()
         {
@@ -8,9 +8,10 @@ namespace SimulacroPruebaC.models
             ======================================================
                         Bienvenido usuario
             ======================================================
-                1.Agregar un conductor.
-                2.Actualizar categoria de licensia.
-                3.Añadir años de experiencia.
+                1.Conductor.
+                2.Cliente.
+                3.Vehiculo.
+                3.Salir.
             ");
 
         }
