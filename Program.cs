@@ -104,7 +104,12 @@ class Program
                             case 2: 
                             Admon.ShowVehicles();
                                 break;
-                            
+                            case 3:
+                            //actualizar
+                                break;
+                            case 4: 
+                                Admon.Delete();
+                                break;
                             default:
                                 break;
                         }
@@ -183,6 +188,7 @@ class Program
             Admon.AddDriver(newDrive);
         }
 
+        //customer---------------------------------
         void AddCustormer()
         {
             Console.WriteLine("Ingrese los datos del cliente:");
@@ -221,7 +227,7 @@ class Program
             Admon admon = new Admon();
             admon.AddCustomer(newCustomer);
         }
-
+        //vehicle--------------------------------------
         void AddVehicle()
         {
             Console.WriteLine(@"****************** Ingrese los datos del vehiculo ******************");

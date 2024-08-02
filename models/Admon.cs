@@ -61,12 +61,12 @@ namespace SimulacroPruebaC.models
 
             Console.WriteLine("¿Que vas a eliminar? 1.Condutor , 2.cliente, 3.vehiculo");
             int optionDelete = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine($"Por favor ingrese el id: ");
-            var id = Console.ReadLine();
+            Console.WriteLine($"Por favor ingrese el id (conductor y cliente) y placa para vehiculo");
+            var dato = Console.ReadLine();
 
             if (optionDelete == 1)
             {
-                var idExit = DriversList.FirstOrDefault(item => item.returnId() == id);
+                var idExit = DriversList.FirstOrDefault(item => item.returnId() == dato);
 
                 if (idExit != null)
                 {
@@ -81,7 +81,7 @@ namespace SimulacroPruebaC.models
             }
             else if (optionDelete == 2)
             {
-                var idExit = CustomersList.FirstOrDefault(item => item.returnId() == id);
+                var idExit = CustomersList.FirstOrDefault(item => item.returnId() == dato);
 
                 if (idExit != null)
                 {
@@ -92,12 +92,23 @@ namespace SimulacroPruebaC.models
                 {
                     mensaje.MensageEliminarError();
                 }
+            }else if(optionDelete == 3){
 
+                var findVehicle = VehicleList.FirstOrDefault(item => item.Placa == dato);
 
+                if (findVehicle != null)
+                {
+                    VehicleList.Remove(findVehicle);
+                    mensaje.MensageEliminarSucces();
+                }
+                else
+                {
+                    mensaje.MensageEliminarError();
+                }
             }
         }
 
-        //validacion de si existe el owner
+        //validacion de si existe el owner y me lo devuelve
         public static Driver ExistOwner(string DocumentNumber){
             var FindOwner = DriversList.FirstOrDefault(item =>item.returnTypeDocument() == DocumentNumber);
             return FindOwner;
