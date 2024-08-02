@@ -30,13 +30,15 @@ namespace SimulacroPruebaC.models
 
         public void ShowDriver(){
             Console.WriteLine(@$"
-            Nombre:{Name},Apellido{LastName},
+            ----------------------  Conductor  ----------------------
+            Id : {Id} Nombre: {Name,-5}, Apellido: {LastName,-5},
             Tipo de documento : {TypeDocument}, Numero de identificació: {IdentificationNumber},
             Fecha de nacimiento :{BrithDate} , Correo electronico: {Email},
             Numero de telefono : {PhoneNumber}, Direccion : {Adreess} ,
             Licencia : {this.LicenseNumber} Categoria Licencia: {this.LicenseCategory}
             Años de experiencia : {this.DrivingExperience} ");
         }
+
 
     }
 }

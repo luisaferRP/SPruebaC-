@@ -26,7 +26,7 @@ class Program
                 {
                     case 1:
                         Console.WriteLine(@"
-                        **************Conductor**********
+                        ******Conductor******
                         1.Agregar conductor.
                         2.Mostrar conductores.
                         3.Actualizar conductor.
@@ -42,6 +42,13 @@ class Program
                             case 2:
                                 Admon.ShowDrivers();
                                 break;
+                            case 3:
+                            //actualizar
+                                break;
+                            case 4:
+                                Admon.Delete();
+                                break;
+
                             
                             default:
                                 break;
@@ -49,15 +56,62 @@ class Program
                         
                         break;
 
-
                     case 2:
-                        AddCustormer();
+                    Console.WriteLine(@"
+                        ****** Cliente ******
+                        1.Agregar Cliente.
+                        2.Mostrar Cliente.
+                        3.Actualizar Cliente.
+                        4.ELiminar Cliente.");
+
+                        int option3;
+                        bool optionSucces = int.TryParse(Console.ReadLine(), out option3);
+
+                        switch (option3)
+                        {
+                            case 1:
+                                AddCustormer();
+                                break;
+                            case 2:
+                                Admon.ShowCustomers();
+                                break;
+                            case 3:
+                            //actualizar
+                                break;
+                            case 4:
+                                Admon.Delete();
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case 3:
-                        AddVehicle();
+                    Console.WriteLine(@"
+                        ****** Vehiculo ******
+                        1.Agregar un Vehiculo.
+                        2.Mostrar Vehiculos.
+                        3.Actualizar un vehiculo.
+                        4.ELiminar un vehiculo.");
+
+                        int option4;
+                        bool optionSuccessV = int.TryParse(Console.ReadLine(), out option4);
+
+                        switch (option4)
+                        {
+                            case 1:
+                                AddVehicle();
+                                break;
+                            case 2: 
+                            Admon.ShowVehicles();
+                                break;
+                            
+                            default:
+                                break;
+                        }
                         break;
 
                     default:
+                    Console.WriteLine("La opción ingresada no es valida");
                         break;
                 }
 
@@ -71,7 +125,7 @@ class Program
 
         } while (true);
 
-        //metodos
+        //driver-------------------------------------
         void AddDriver()
         {
             Console.WriteLine("Ingrese los datos del conductor:");
@@ -190,6 +244,27 @@ class Program
             //Me aseguro de que cada valor numérico esté convertido a byte 
             byte peopleCapacity = typeVehicle == "moto" ? (byte)2 : typeVehicle == "carro" ? (byte)4 : typeVehicle == "camioneta" ? (byte)6 : typeVehicle == "microbus" ? (byte)14 : (byte)0;
 
+        
+            Console.WriteLine("Por favor ingrese el tipo de documento del conductor :");
+            string DocumentNumber = Console.ReadLine();
+
+            //validación de si existe el owner
+            var FindOwner = Admon.ExistOwner(DocumentNumber);
+
+            if(FindOwner != null){
+
+                Vehicle newVehicle = new Vehicle(placa,type,engineNumber,serialNumber,peopleCapacity,FindOwner);
+
+            }else
+            {
+                Console.WriteLine("El conductor no existe,creemos uno.");
+                AddDriver();
+                Console.WriteLine("Por favor ingrese el tipo de documento del conductor :");
+                string FindDocumentNumber = Console.ReadLine();
+                var FindOwnerD = Admon.ExistOwner(FindDocumentNumber);
+
+                Vehicle newVehicle = new Vehicle(placa,type,engineNumber,serialNumber,peopleCapacity,FindOwner);
+            }
         }
     }
 

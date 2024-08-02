@@ -18,5 +18,16 @@ namespace SimulacroPruebaC.models
         public void UpdateMembershipLevel(){
             
         }
+
+        //ver cliente
+        public void ShowCustomer(){
+            Console.WriteLine(@$"
+            --------------------------------------- Cliente  -----------------------------------------
+            Id : {Id} Nombre: {Name,-5}, Apellido: {LastName,-5},
+            Tipo de documento : {TypeDocument}, Numero de identificació: {IdentificationNumber},
+            Fecha de nacimiento :{BrithDate} , Correo electronico: {Email},
+            Numero de telefono : {PhoneNumber}, Direccion : {Adreess} ,
+            Nivel de afiliación : {MembershipLevel} Metodo de pago preferido {this.PreferredPaymentMethod}");
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace SimulacroPruebaC.models
         public User(string name,string lastName,string typeDocument,string identificationNumber,
         DateOnly brithDate,string email,string phoneNumber,string adreess )
         {
+            Id = Guid.NewGuid();
             Name = name;
             LastName = lastName;
             TypeDocument = typeDocument;
@@ -42,5 +43,12 @@ namespace SimulacroPruebaC.models
             Console.WriteLine($"Su edad es: {CalculateAge()}");
         }
 
+        public string returnId(){
+            return Id.ToString();
+        }
+
+        public string returnTypeDocument(){
+            return TypeDocument.ToString();
+        }
     }
 }

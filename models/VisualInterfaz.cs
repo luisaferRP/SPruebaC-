@@ -5,9 +5,9 @@ namespace SimulacroPruebaC.models
         public static void Visual()
         {
             Console.WriteLine(@"
-            ==================================================
+            ===============================================
                         Bienvenido usuario
-            ==================================================
+            ===============================================
                 1.Conductor.
                 2.Cliente.
                 3.Vehiculo.

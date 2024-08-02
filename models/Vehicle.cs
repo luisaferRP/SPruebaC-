@@ -27,5 +27,14 @@ namespace SimulacroPruebaC.models
         public void DeleteVehicle(int id){
             
         }
+
+        //miembro mostrar vehiculo
+        public void ShowVehicles(){
+            Console.WriteLine(@$"
+            --------------------------------------- Vehiculo  -----------------------------------------
+            Id : {Id} PLaca: {Placa,-5}, Tipo: {Tipo,-5},
+            Numero de motor : {EngineNumber}, Numero de serie: {SerialNumber},
+            Capacidad de persona :{PeopleCapacity} , Propietario {Owner},");
+        }
     }
 }
