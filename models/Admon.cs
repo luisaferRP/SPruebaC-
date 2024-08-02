@@ -24,11 +24,10 @@ namespace SimulacroPruebaC.models
             mensaje.MensageSuccesAdd();
         }
 
-        public static void ShowDriver(){
-            foreach (var item in DriversList)
+        public static void ShowDrivers(){
+            foreach (var driver in DriversList)
             {
-            
-                
+                driver.ShowDriver();
             }
         }
 

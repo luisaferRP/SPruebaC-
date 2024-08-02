@@ -7,7 +7,6 @@ class Program
     static void Main(string[] args)
     {
         int option;
-        string licenseCategory;
 
         do
         {
@@ -26,12 +25,35 @@ class Program
                 switch (option)
                 {
                     case 1:
-                        AddDriver();
+                        Console.WriteLine(@"
+                        **************Conductor**********
+                        1.Agregar conductor.
+                        2.Mostrar conductores.
+                        3.Actualizar conductor.
+                        4.ELiminar conductor.");
+                        int option2;
+                        bool optionSuccess = int.TryParse(Console.ReadLine(), out option2);
+                        
+                        switch (option2)
+                        {
+                            case 1:
+                                AddDriver();
+                                break;
+                            case 2:
+                                Admon.ShowDrivers();
+                                break;
+                            
+                            default:
+                                break;
+                        }
+                        
                         break;
-                    case 2: 
+
+
+                    case 2:
                         AddCustormer();
                         break;
-                    case 3: 
+                    case 3:
                         AddVehicle();
                         break;
 
@@ -50,8 +72,9 @@ class Program
         } while (true);
 
         //metodos
-        void AddDriver(){
-            Console.WriteLine("Ingrese los datos del conductor:"); 
+        void AddDriver()
+        {
+            Console.WriteLine("Ingrese los datos del conductor:");
             Console.WriteLine("Nombre:");
             string name = Console.ReadLine();
 
@@ -66,7 +89,7 @@ class Program
 
             Console.WriteLine("Fecha de nacimiento: AAAA-MM-DD");
             DateOnly brithDate;
-            bool brith = DateOnly.TryParse(Console.ReadLine(),out brithDate);
+            bool brith = DateOnly.TryParse(Console.ReadLine(), out brithDate);
 
             Console.WriteLine("Email : ");
             string email = Console.ReadLine();
@@ -83,27 +106,32 @@ class Program
             Console.WriteLine("¿Qué tipo de vehiculo maneja? ");
             string typeVehicle = Console.ReadLine().Trim();
 
+            string licenseCategory = "Not found";
 
-            if (typeVehicle.Equals("moto",StringComparison.OrdinalIgnoreCase))
+
+            if (typeVehicle.Equals("moto", StringComparison.OrdinalIgnoreCase))
             {
                 licenseCategory = "A2";
-            }else if(typeVehicle.Equals("carro",StringComparison.OrdinalIgnoreCase) || typeVehicle.Equals("camioneta",StringComparison.OrdinalIgnoreCase) || typeVehicle.Equals("microbus",StringComparison.OrdinalIgnoreCase) )
+            }
+            else if (typeVehicle.Equals("carro", StringComparison.OrdinalIgnoreCase) || typeVehicle.Equals("camioneta", StringComparison.OrdinalIgnoreCase) || typeVehicle.Equals("microbus", StringComparison.OrdinalIgnoreCase))
             {
                 licenseCategory = "B2";
-            }else
+            }
+            else
             {
                 Console.WriteLine("Por favor ingresa un vehiculo valido");
             }
 
             Console.WriteLine("Experiencia de condución: ");
             int drivingExperience = Convert.ToInt32(Console.ReadLine());
-            
-            Driver newDrive = new Driver(name,lastName,typeDocument,identificationNumber,brithDate,email,phoneNumber,adreess,licenseNumber,licenseCategory,drivingExperience);
+
+            Driver newDrive = new Driver(name, lastName, typeDocument, identificationNumber, brithDate, email, phoneNumber, adreess, licenseNumber, licenseCategory, drivingExperience);
             Admon.AddDriver(newDrive);
         }
 
-        void AddCustormer(){
-            Console.WriteLine("Ingrese los datos del cliente:"); 
+        void AddCustormer()
+        {
+            Console.WriteLine("Ingrese los datos del cliente:");
             Console.WriteLine("Nombre:");
             string name = Console.ReadLine();
 
@@ -118,7 +146,7 @@ class Program
 
             Console.WriteLine("Fecha de nacimiento: AAAA-MM-DD");
             DateOnly brithDate;
-            bool brith = DateOnly.TryParse(Console.ReadLine(),out brithDate);
+            bool brith = DateOnly.TryParse(Console.ReadLine(), out brithDate);
 
             Console.WriteLine("Email : ");
             string email = Console.ReadLine();
@@ -135,12 +163,13 @@ class Program
             Console.WriteLine("Metodo de pago preferido eje: pago en efectivo. ");
             string preferredPaymentMethod = Console.ReadLine();
 
-            Customer newCustomer = new Customer(name,lastName,typeDocument,identificationNumber,brithDate,email,phoneNumber,adreess,membershipLevel,preferredPaymentMethod);
+            Customer newCustomer = new Customer(name, lastName, typeDocument, identificationNumber, brithDate, email, phoneNumber, adreess, membershipLevel, preferredPaymentMethod);
             Admon admon = new Admon();
             admon.AddCustomer(newCustomer);
         }
 
-        void AddVehicle(){
+        void AddVehicle()
+        {
             Console.WriteLine(@"****************** Ingrese los datos del vehiculo ******************");
 
             Console.WriteLine("Placa del vehiculo:");
