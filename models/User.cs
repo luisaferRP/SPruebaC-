@@ -42,8 +42,5 @@ namespace SimulacroPruebaC.models
             Console.WriteLine($"Su edad es: {CalculateAge()}");
         }
 
-
-
-
     }
 }
