@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace SimulacroPruebaC.models
 {
-    public class Driver : User
+    public class Driver : User 
     {
         //miembros atributos
         public string LicenseNumber {get;set;}

@@ -6,6 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        
         int option;
 
         do
@@ -217,7 +218,7 @@ class Program
             Console.WriteLine("Direccion: ");
             string adreess = Console.ReadLine();
 
-            Console.WriteLine("Nivel de afiliación: ");
+            Console.WriteLine("Nivel de membresia: ");
             string membershipLevel = Console.ReadLine();
 
             Console.WriteLine("Metodo de pago preferido eje: pago en efectivo. ");
@@ -236,16 +237,14 @@ class Program
             string placa = Console.ReadLine();
 
             Console.WriteLine("Tipo de vehiculo :");
-            string type = Console.ReadLine();
+            string typeVehicle = Console.ReadLine();
+            string type = typeVehicle;
 
             Console.WriteLine("Numero de motor:");
             string engineNumber = Console.ReadLine();
 
             Console.WriteLine("Numero de serie:");
             string serialNumber = Console.ReadLine();
-
-            Console.WriteLine("Ingrese el tipo de vehiculo que maneja (moto,carro,camioneta,microbus):");
-            string typeVehicle = Console.ReadLine();
 
             //Me aseguro de que cada valor numérico esté convertido a byte 
             byte peopleCapacity = typeVehicle == "moto" ? (byte)2 : typeVehicle == "carro" ? (byte)4 : typeVehicle == "camioneta" ? (byte)6 : typeVehicle == "microbus" ? (byte)14 : (byte)0;
@@ -270,6 +269,7 @@ class Program
                 var FindOwnerD = Admon.ExistOwner(FindDocumentNumber);
 
                 Vehicle newVehicle = new Vehicle(placa,type,engineNumber,serialNumber,peopleCapacity,FindOwner);
+                Mensaje.MensageSuccesAdd();
             }
         }
     }

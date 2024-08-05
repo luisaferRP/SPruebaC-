@@ -1,6 +1,6 @@
 namespace SimulacroPruebaC.models
 {
-    public class mensaje
+    public class Mensaje
     {
         public static void MensageSuccesAdd(){
             Console.ForegroundColor = ConsoleColor.Green;

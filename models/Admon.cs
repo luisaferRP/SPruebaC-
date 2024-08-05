@@ -18,13 +18,13 @@ namespace SimulacroPruebaC.models
         public void AddCustomer(Customer customer)
         {
             CustomersList.Add(customer);
-            mensaje.MensageSuccesAdd();
+            Mensaje.MensageSuccesAdd();
         }
 
         public static void AddDriver(Driver driver)
         {
             DriversList.Add(driver);
-            mensaje.MensageSuccesAdd();
+            Mensaje.MensageSuccesAdd();
         }
 
         //mostrar conductor
@@ -71,11 +71,11 @@ namespace SimulacroPruebaC.models
                 if (idExit != null)
                 {
                     DriversList.Remove(idExit);
-                    mensaje.MensageEliminarSucces();
+                    Mensaje.MensageEliminarSucces();
                 }
                 else
                 {
-                    mensaje.MensageEliminarError();
+                    Mensaje.MensageEliminarError();
                 }
 
             }
@@ -86,11 +86,11 @@ namespace SimulacroPruebaC.models
                 if (idExit != null)
                 {
                     CustomersList.Remove(idExit);
-                    mensaje.MensageEliminarSucces();
+                    Mensaje.MensageEliminarSucces();
                 }
                 else
                 {
-                    mensaje.MensageEliminarError();
+                    Mensaje.MensageEliminarError();
                 }
             }else if(optionDelete == 3){
 
@@ -99,11 +99,11 @@ namespace SimulacroPruebaC.models
                 if (findVehicle != null)
                 {
                     VehicleList.Remove(findVehicle);
-                    mensaje.MensageEliminarSucces();
+                    Mensaje.MensageEliminarSucces();
                 }
                 else
                 {
-                    mensaje.MensageEliminarError();
+                    Mensaje.MensageEliminarError();
                 }
             }
         }

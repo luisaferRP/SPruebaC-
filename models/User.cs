@@ -1,7 +1,7 @@
 namespace SimulacroPruebaC.models
 {
-    public class User
-    {
+    public class User 
+      {
         //miembros atributos
         protected Guid Id {get;set;}
         protected string Name {get;set;}
@@ -14,6 +14,7 @@ namespace SimulacroPruebaC.models
         protected string Adreess {get;set;}
 
         //miembro constructor
+        
         public User(string name,string lastName,string typeDocument,string identificationNumber,
         DateOnly brithDate,string email,string phoneNumber,string adreess )
         {
